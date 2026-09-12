@@ -55,8 +55,10 @@ function networkDelay<T>(value: T): Promise<T> {
 
 /** GET /people?search=query */
 export async function getPeople(query: string = ""): Promise<Person[]> {
-  const q = query.trim().toLowerCase();
-  return networkDelay(records.filter((p) => p.name.toLowerCase().includes(q)));
+  // [ IMPLEMENTATION BELOW THIS LINE ]
+
+
+  return networkDelay(/* [ FILL IN ] */);
 }
 
 /** POST /people */
@@ -68,6 +70,8 @@ export function addPerson(input: NewPerson): Promise<Person> {
 
 /** DELETE /people/:id */
 export function removePerson(id: number): Promise<void> {
-  records = records.filter((p) => p.id !== id);
-  return networkDelay(undefined);
+  // [ IMPLEMENTATION BELOW THIS LINE ]
+
+
+  return networkDelay(/* [ FILL IN ] */);
 }
