@@ -1,0 +1,243 @@
+/* ############################ [ DO NOT MODIFY ] ############################ */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #202436;
+  --ink-soft: #565b70;
+  --paper: #f1f2ee;
+  --panel: #ffffff;
+  --rule: #d8d6cc;
+  --gold: #a8792a;
+  --gold-hover: #8f6620;
+
+  --role-undergrad: #4a6fa5;
+  --role-undergrad-bg: #e7eef5;
+  --role-grad: #7a5b87;
+  --role-grad-bg: #efe6f1;
+  --role-faculty: #a8792a;
+  --role-faculty-bg: #f4ebda;
+
+  --status-study: #4a7a78;
+  --status-study-bg: #e2efee;
+  --status-coop: #4e8b5c;
+  --status-coop-bg: #e4f0e6;
+  --status-teaching: #a85d3b;
+  --status-teaching-bg: #f3e7e0;
+  --status-research: #5b5b99;
+  --status-research-bg: #e7e7f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.directory {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.directory-header h1 {
+  font-family: "IBM Plex Serif", serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 0 0 28px;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+.controls {
+  margin-bottom: 12px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: inherit;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.search-input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.add-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+.add-form input,
+.add-form select {
+  flex: 1 1 140px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.add-form button {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  color: #ffffff;
+  background: var(--gold);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.add-form button:hover {
+  background: var(--gold-hover);
+}
+
+.add-form input:focus-visible,
+.add-form select:focus-visible,
+.add-form button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.loading {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.directory-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.directory-table thead th {
+  text-align: left;
+  font-weight: 600;
+  padding: 10px 8px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+
+.directory-table tbody td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: middle;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.role-undergraduate {
+  color: var(--role-undergrad);
+  background: var(--role-undergrad-bg);
+}
+
+.role-graduate {
+  color: var(--role-grad);
+  background: var(--role-grad-bg);
+}
+
+.role-faculty {
+  color: var(--role-faculty);
+  background: var(--role-faculty-bg);
+}
+
+.status-study-term {
+  color: var(--status-study);
+  background: var(--status-study-bg);
+}
+
+.status-co-op {
+  color: var(--status-coop);
+  background: var(--status-coop-bg);
+}
+
+.status-teaching {
+  color: var(--status-teaching);
+  background: var(--status-teaching-bg);
+}
+
+.status-research {
+  color: var(--status-research);
+  background: var(--status-research-bg);
+}
+
+.remove-btn {
+  padding: 5px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.remove-btn:hover {
+  border-color: #b5453f;
+  color: #b5453f;
+}
+
+.remove-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.status-message {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 640px) {
+  .directory {
+    padding: 24px 16px 48px;
+  }
+
+  .add-form {
+    flex-direction: column;
+  }
+
+  .add-form input,
+  .add-form select,
+  .add-form button {
+    width: 100%;
+  }
+
+  .directory-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
