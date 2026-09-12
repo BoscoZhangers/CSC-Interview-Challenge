@@ -1,5 +1,3 @@
-// ############################ [ DO NOT MODIFY ] ############################
-
 // A tiny in-memory "database" that behaves like a real backend: every
 // operation returns a Promise and takes a random amount of time to
 // resolve, the same way a real network request would. The component that
@@ -54,10 +52,9 @@ function networkDelay<T>(value: T): Promise<T> {
 // ########################  MOCK API  ########################
 
 /** GET /people?search=query */
-export function getPeople(query: string = ""): Promise<Person[]> {
+export async function getPeople(query: string = ""): Promise<Person[]> {
   const q = query.trim().toLowerCase();
-  const results = records.filter((p) => p.name.toLowerCase().includes(q));
-  return networkDelay(results);
+  return networkDelay(records.filter((p) => p.name.toLowerCase().includes(q)));
 }
 
 /** POST /people */

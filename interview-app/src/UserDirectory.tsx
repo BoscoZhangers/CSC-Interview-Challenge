@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./UserDirectory.css";
+import { FACULTIES, STATUS_OPTIONS } from "./DirectoryAPI.ts";
 import { getPeople, addPerson, removePerson } from "./DirectoryAPI.ts";
 import type { Person, Faculty, Role, Status } from "./DirectoryAPI.ts";
-
-const FACULTIES = ["Mathematics", "Engineering", "Science", "Arts", "Environment", "Health"];
-
-const STATUS_OPTIONS: Record<Role, Status[]> = {
-  "Undergraduate Student": ["Study Term", "Co-op"],
-  "Graduate Student": ["Study Term", "Co-op"],
-  "Faculty Staff": ["Teaching", "Research"],
-};
 
 export default function UserDirectory() {
   const [people, setPeople] = useState<Person[]>([]);
@@ -18,7 +11,7 @@ export default function UserDirectory() {
   const [statusMessage, setStatusMessage] = useState("");
 
   const [newName, setNewName] = useState("");
-  const [newFaculty, setNewFaculty] = useState(FACULTIES[0]);
+  const [newFaculty, setNewFaculty] = useState<Faculty>("Mathematics");
   const [newRole, setNewRole] = useState<Role>("Undergraduate Student");
   const [newStatus, setNewStatus] = useState<Status>("Study Term");
 
@@ -34,10 +27,11 @@ export default function UserDirectory() {
   // Keep a running summary of how many people are currently loaded
   useEffect(() => {
     setStatusMessage(
-      `${people.length} ${people.length === 1 ? "person" : "people"} in the directory`
+      `Displaying ${people.length} ${people.length === 1 ? "person" : "people"}`
     );
   }, []);
 
+  // Since status options depends on Role
   const handleRoleChange = (role: Role) => {
     setNewRole(role);
     setNewStatus(STATUS_OPTIONS[role][0]);
@@ -68,7 +62,7 @@ export default function UserDirectory() {
   return (
     <div className="directory">
       <header className="directory-header">
-        <h1>CSC Directory</h1>
+        <h1>Water-Who"</h1>
         <p className="subtitle">University of Waterloo User Directory</p>
       </header>
 
@@ -93,7 +87,7 @@ export default function UserDirectory() {
           value={newName}
           onChange={(e) => setNewName(e.target.value)}
         />
-        <select value={newFaculty} onChange={(e) => setNewFaculty(e.target.value)}>
+        <select value={newFaculty} onChange={(e) => setNewFaculty(e.target.value as Faculty)}>
           {FACULTIES.map((f) => (
             <option key={f} value={f}>{f}</option>
           ))}
