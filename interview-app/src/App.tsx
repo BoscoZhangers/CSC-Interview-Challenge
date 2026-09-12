@@ -9,7 +9,19 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <UserDirectory/>
+    <div className="App" style={{ width: '100%', margin: 0, padding: 0 }}>
+      {/* This injects the baseline full-screen rules directly into the page */}
+      <style>{`
+        html, body, #root {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          overflow-x: hidden;
+        }
+      `}</style>
+      
+      <UserDirectory/>
+    </div>
   )
 }
 

@@ -1,3 +1,5 @@
+// [ UserDirectory.tsx ]
+
 import React, { useState, useEffect } from "react";
 import "./UserDirectory.css";
 import { FACULTIES, STATUS_OPTIONS } from "./DirectoryAPI.ts";
@@ -62,7 +64,7 @@ export default function UserDirectory() {
   return (
     <div className="directory">
       <header className="directory-header">
-        <h1>Water-Who"</h1>
+        <h1>Water Who?</h1>
         <p className="subtitle">University of Waterloo User Directory</p>
       </header>
 
@@ -112,6 +114,7 @@ export default function UserDirectory() {
           <tr>
             <th>Name</th>
             <th>WatIAM</th>
+            <th>ID</th>
             <th>Faculty</th>
             <th>Role</th>
             <th>Status</th>
@@ -123,6 +126,7 @@ export default function UserDirectory() {
             <tr>
               <td>{person.name}</td>
               <td>{person.watIAMId}</td>
+              <td>{person.id}</td>
               <td>{person.faculty}</td>
               <td>
                 <span className={`badge role-${person.role.split(" ")[0].toLowerCase()}`}>

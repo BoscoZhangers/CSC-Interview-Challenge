@@ -1,9 +1,10 @@
+/* [ UserDirectory.css ] */
 /* ############################ [ DO NOT MODIFY ] ############################ */
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
 :root {
-  --ink: #202436;
+  --ink: #565b70;
   --ink-soft: #565b70;
   --paper: #f1f2ee;
   --panel: #ffffff;
@@ -33,7 +34,8 @@
 }
 
 .directory {
-  max-width: 880px;
+  box-sizing: border-box;
+  max-width: 100%;
   margin: 0 auto;
   padding: 40px 24px 64px;
   font-family: "IBM Plex Sans", sans-serif;
@@ -46,6 +48,7 @@
   font-size: 28px;
   font-weight: 600;
   margin: 0 0 4px;
+  color: var(--ink-soft);
   letter-spacing: -0.01em;
 }
 

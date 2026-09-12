@@ -1,3 +1,5 @@
+// [ DirectoryAPI.ts ]
+
 // A tiny in-memory "database" that behaves like a real backend: every
 // operation returns a Promise and takes a random amount of time to
 // resolve, the same way a real network request would. The component that
