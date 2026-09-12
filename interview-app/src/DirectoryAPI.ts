@@ -7,7 +7,7 @@
 // three functions and works with the Promises they return.
 
 export type Role = "Undergraduate Student" | "Graduate Student" | "Faculty Staff";
-export type StudentStatus = "Study Term" | "Co-op"
+export type StudentStatus = "Study Term" | "Co-op";
 export type FacultyStatus = "Teaching" | "Research";
 export type Status = StudentStatus | FacultyStatus;
 
