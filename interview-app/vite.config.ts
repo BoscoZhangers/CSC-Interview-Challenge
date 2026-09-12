@@ -3,5 +3,10 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  // ... your other config
+  server: {
+    watch: {
+      usePolling: true, // Forces Vite to actively check for file modifications
+    },
+  },
+});

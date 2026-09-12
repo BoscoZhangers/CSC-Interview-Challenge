@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./UserDirectory.css";
 import { getPeople, addPerson, removePerson } from "./DirectoryAPI.ts";
-import type { Person, Role, Status } from "./DirectoryAPI.ts";
+import type { Person, Faculty, Role, Status } from "./DirectoryAPI.ts";
 
 const FACULTIES = ["Mathematics", "Engineering", "Science", "Arts", "Environment", "Health"];
 
@@ -69,13 +69,13 @@ export default function UserDirectory() {
     <div className="directory">
       <header className="directory-header">
         <h1>CSC Directory</h1>
-        <p className="subtitle">Search and manage the Waterloo CS roster</p>
+        <p className="subtitle">University of Waterloo User Directory</p>
       </header>
 
       <div className="controls">
         <input
           className="search-input"
-          placeholder="Search by name..."
+          placeholder="Search by user name..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />

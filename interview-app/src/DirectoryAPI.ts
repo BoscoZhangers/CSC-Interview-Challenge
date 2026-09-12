@@ -7,15 +7,24 @@
 // three functions and works with the Promises they return.
 
 export type Role = "Undergraduate Student" | "Graduate Student" | "Faculty Staff";
-export type StudentStatus = "Study Term" | "Co-op";
+export type StudentStatus = "Study Term" | "Co-op"
 export type FacultyStatus = "Teaching" | "Research";
 export type Status = StudentStatus | FacultyStatus;
+
+export const FACULTIES = ["Mathematics", "Engineering", "Science", "Arts", "Environment", "Health"] as const;
+export type Faculty = typeof FACULTIES[number];
+
+export const STATUS_OPTIONS: Record<Role, Status[]> = {
+  "Undergraduate Student": ["Study Term", "Co-op"],
+  "Graduate Student": ["Study Term", "Co-op"],
+  "Faculty Staff": ["Teaching", "Research"],
+};
 
 export interface Person {
   id: number;
   watIAMId: number;
   name: string;
-  faculty: string;
+  faculty: Faculty;
   role: Role;
   status: Status;
 }
@@ -24,17 +33,17 @@ export type NewPerson = Omit<Person, "id">; // Person but without the "id" field
 
 // "Database" itself (module-private) 
 let records: Person[] = [
-  { id: 1, watIAMId: "achen21", name: "Alice Chen", faculty: "Mathematics", role: "Undergraduate Student", status: "Co-op" },
-  { id: 2, watIAMId: "bkhan22", name: "Bilal Khan", faculty: "Engineering", role: "Undergraduate Student", status: "Study Term" },
-  { id: 3, watIAMId: "cwei20g", name: "Chen Wei", faculty: "Mathematics", role: "Graduate Student", status: "Co-op" },
-  { id: 4, watIAMId: "dosei23", name: "Diana Osei", faculty: "Science", role: "Graduate Student", status: "Study Term" },
-  { id: 5, watIAMId: "epark", name: "Ethan Park", faculty: "Mathematics", role: "Faculty Staff", status: "Teaching" },
-  { id: 6, watIAMId: "fahmed", name: "Fatima Ahmed", faculty: "Engineering", role: "Faculty Staff", status: "Research" },
-  { id: 7, watIAMId: "gliu24", name: "Grace Liu", faculty: "Arts", role: "Undergraduate Student", status: "Study Term" },
-  { id: 8, watIAMId: "hosei", name: "Henry Osei", faculty: "Science", role: "Faculty Staff", status: "Teaching" },
+  { id: 21121001, watIAMId: "achen21", name: "Alice Chen", faculty: "Mathematics", role: "Undergraduate Student", status: "Co-op" },
+  { id: 21121002, watIAMId: "bkhan22", name: "Bilal Khan", faculty: "Engineering", role: "Undergraduate Student", status: "Study Term" },
+  { id: 21121003, watIAMId: "cwei20g", name: "Chen Wei", faculty: "Mathematics", role: "Graduate Student", status: "Co-op" },
+  { id: 21121004, watIAMId: "dosei23", name: "Diana Osei", faculty: "Science", role: "Graduate Student", status: "Study Term" },
+  { id: 21121005, watIAMId: "epark", name: "Ethan Park", faculty: "Mathematics", role: "Faculty Staff", status: "Teaching" },
+  { id: 21121006, watIAMId: "fahmed", name: "Fatima Ahmed", faculty: "Engineering", role: "Faculty Staff", status: "Research" },
+  { id: 21121007, watIAMId: "gliu24", name: "Grace Liu", faculty: "Arts", role: "Undergraduate Student", status: "Study Term" },
+  { id: 21121008, watIAMId: "hosei", name: "Henry Osei", faculty: "Science", role: "Faculty Staff", status: "Teaching" },
 ];
 
-let nextId = records.length + 1;
+let nextId = 21121000 + records.length + 1;
 
 // Template function wraps return value in a promise.
 function networkDelay<T>(value: T): Promise<T> {
